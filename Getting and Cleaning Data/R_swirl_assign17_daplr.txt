@@ -1,4 +1,4 @@
-[ reached getOption("max.print") -- omitted 216378 rows ]
+.[ reached getOption("max.print") -- omitted 216378 rows ]
 
 | Not quite right, but keep trying. Or, type info() for more options.
 

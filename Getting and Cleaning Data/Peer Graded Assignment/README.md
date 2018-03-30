@@ -15,9 +15,7 @@ You should create one R script called run_analysis.R that does the following.
 
 
 ## Steps to Run to code: 
-1.
-2. 
-3.
+Run run_analysis.R. Make sure the dataset is in the same directory 
 
 
 # Description: 

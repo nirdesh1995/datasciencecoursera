@@ -1,0 +1,447 @@
+
+
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.70 (7463) x86_64-apple-darwin15.6.0]
+
+[Workspace restored from /Users/nirdeshbhandari/.RData]
+[History restored from /Users/nirdeshbhandari/.Rapp.history]
+
+> library(swirl)
+
+| Hi! I see that you have some variables saved in your workspace. To keep things running smoothly, I recommend you clean up before
+| starting swirl.
+
+| Type ls() to see a list of the variables in your workspace. Then, type rm(list=ls()) to clear your workspace.
+
+| Type swirl() when you are ready to begin.
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new, call yourself
+| something unique.
+
+What shall I call you? Nirdesh
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: Exploratory Data Analysis
+2: Getting and Cleaning Data
+3: R Programming
+4: Take me to the swirl course repository!
+
+Selection: 1
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Principles of Analytic Graphs   2: Exploratory Graphs              3: Graphics Devices in R        
+ 4: Plotting Systems                5: Base Plotting System            6: Lattice Plotting System      
+ 7: Working with Colors             8: GGPlot2 Part1                   9: GGPlot2 Part2                
+10: GGPlot2 Extras                 11: Hierarchical Clustering        12: K Means Clustering           
+13: Dimension Reduction            14: Clustering Example             15: CaseStudy                    
+
+
+Selection: 9
+
+| Attempting to load lesson dependencies...
+
+| Package ‘ggplot2’ loaded correctly!
+  |                                                                                                                              |   0%
+
+| GGPlot2_Part2. (Slides for this and other Data Science courses may be found at github
+| https://github.com/DataScienceSpecialization/courses/. If you care to use them, they must be downloaded as a zip file and viewed
+| locally. This lesson corresponds to 04_ExploratoryAnalysis/ggplot2.)
+
+...
+  |===                                                                                                                           |   2%
+| In a previous lesson we showed you the vast capabilities of qplot, the basic workhorse function of the ggplot2 package. In this lesson we'll focus on some
+| fundamental components of the package. These underlie qplot which uses default values when it calls them. If you understand these building blocks, you will
+| be better able to customize your plots. We'll use the second workhorse function in the package, ggplot, as well as other graphing functions.
+
+...
+  |=====                                                                                                                         |   4%
+| Do you remember what the gg of ggplot2 stands for?
+
+1: good grief
+2: great graphics
+3: goto graphics
+4: grammar of graphics
+
+Selection: 4
+
+| Keep working like that and you'll get there!
+  |========                                                                                                                      |   6%
+| A "grammar" of graphics means that ggplot2 contains building blocks with which you can create your own graphical objects. What are these basic components of
+| ggplot2 plots? There are 7 of them.
+
+...
+  |==========                                                                                                                    |   8%
+| Obviously, there's a DATA FRAME which contains the data you're trying to plot. Then the AESTHETIC MAPPINGS determine how data are mapped to color, size, etc.
+| The GEOMS (geometric objects) are what you see in the plot (points, lines, shapes) and FACETS are the panels used in conditional plots. You've used these or
+| seen them used in the first ggplot2 (qplot) lesson.
+
+...
+  |=============                                                                                                                 |  10%
+| There are 3 more. STATS are statistical transformations such as binning, quantiles, and smoothing which ggplot2 applies to the data. SCALES show what coding
+| an aesthetic map uses (for example, male = red, female = blue). Finally, the plots are depicted on a COORDINATE SYSTEM. When you use qplot these were taken
+| care of for you.
+
+...
+  |================                                                                                                              |  12%
+| Do you remember what the "artist's palette" model means in the context of plotting?
+
+1: plots are built up in layers
+2: things get messy
+3: we draw pictures
+4: we mix paints
+
+Selection: 1
+
+| Excellent work!
+  |==================                                                                                                            |  15%
+| As in the base plotting system (and in contrast to the lattice system), when building plots with ggplot2, the plots are built up in layers, maybe in several
+| steps. You can plot the data, then overlay a summary (for instance, a regression line or smoother) and then add any metadata and annotations you need.
+
+...
+  |=====================                                                                                                         |  17%
+| We'll keep using the mpg data that comes with the ggplot2 package. Recall the versatility of qplot. Just as a refresher, call qplot now with 5 arguments. The
+| first 3 deal with data - displ, hwy, and data=mpg. The fourth is geom set equal to the concatenation of the two strings, "point" and "smooth". The fifth is
+| facets set equal to the formula .~drv. Try this now.
+
+> qplot(displ,hwy, data=mpg, goem=c("point", "smooth"),facets= .~drv)
+Warning: Ignoring unknown parameters: goem
+Error in (function (expr, val, ok, vis, data = e)  : 
+  object 'PANEL' not found
+> qplot(displ,hwy, data=mpg, goem=c("point", "smooth"),facets= .~drv)
+Warning: Ignoring unknown parameters: goem
+> qplot(displ,hwy, data=mpg, geom=c("point", "smooth"),facets= .~drv)
+`geom_smooth()` using method = 'loess'
+> library(swirl)
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new, call yourself something unique.
+
+What shall I call you? Nirdesh
+
+| Would you like to continue with one of these lessons?
+
+1: Exploratory Data Analysis GGPlot2 Part2
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attempting to load lesson dependencies...
+
+| Package ‘ggplot2’ loaded correctly!
+
+
+
+| We'll keep using the mpg data that comes with the ggplot2 package. Recall the versatility of qplot. Just as a refresher, call qplot now with 5 arguments. The
+| first 3 deal with data - displ, hwy, and data=mpg. The fourth is geom set equal to the concatenation of the two strings, "point" and "smooth". The fifth is
+| facets set equal to the formula .~drv. Try this now.
+
+> qplot(displ,hwy, data=mpg, geom=c("point", "smooth"),facets= .~drv)
+`geom_smooth()` using method = 'loess'
+Error in (function (expr, val, ok, vis, data = e)  : 
+  object 'group' not found
+> library(swirl)
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new, call yourself something unique.
+
+What shall I call you? Nirdesh
+
+| Would you like to continue with one of these lessons?
+
+1: Exploratory Data Analysis GGPlot2 Part2
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attempting to load lesson dependencies...
+
+| Package ‘ggplot2’ loaded correctly!
+
+
+
+| We see a 3 facet plot, one for each drive type (4, f, and r). Now we'll see how ggplot works. We'll build up a similar plot using the basic components of the
+| package. We'll do this in a series of steps.
+
+...
+  |==========================                                                                                                    |  21%
+| First we'll create a variable g by assigning to it the output of a call to ggplot with 2 arguments. The first is mpg (our dataset) and the second will tell
+| ggplot what we want to plot, in this case, displ and hwy. These are what we want our aesthetics to represent so we enclose these as two arguments to the
+| function aes. Try this now.
+
+> g<- ggplot(mpg,aes(displ,hwy))
+
+| Excellent work!
+  |=============================                                                                                                 |  23%
+| Notice that nothing happened? As in the lattice system, ggplot created a graphical object which we assigned to the variable g.
+
+...
+  |================================                                                                                              |  25%
+| Run the R command summary with g as its argument to see what g contains.
+
+> summary(g)
+data: manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl, class [234x11]
+mapping:  x = displ, y = hwy
+faceting: <ggproto object: Class FacetNull, Facet>
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map: function
+    map_data: function
+    params: list
+    render_back: function
+    render_front: function
+    render_panels: function
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train: function
+    train_positions: function
+    train_scales: function
+    vars: function
+    super:  <ggproto object: Class FacetNull, Facet>
+
+| Nice work!
+  |==================================                                                                                            |  27%
+| So g contains the mpg data with all its named components in a 234 by 11 matrix. It also contains a mapping, x (displ) and y (hwy) which you specified, and no
+| faceting.
+
+...
+  |=====================================                                                                                         |  29%
+| Note that if you tried to print g with the expressions g or print(g) you'd get an error! Even though it's a great package, ggplot doesn't know how to display
+| the data yet since you didn't specify how you wanted to see it. Now type g+geom_point() and see what happens.
+
+>  g+geom_point() 
+Error in (function (expr, val, ok, vis, data = e)  : 
+  object 'PANEL' not found
+> geom_point(g) 
+Error: Mapping must be created by `aes()` or `aes_()`
+> g<- ggplot(mpg,aes(displ,hwy))
+
+
+> library(swirl)
+
+| Hi! I see that you have some variables saved in your workspace. To keep things running
+| smoothly, I recommend you clean up before starting swirl.
+
+| Type ls() to see a list of the variables in your workspace. Then, type rm(list=ls()) to
+| clear your workspace.
+
+| Type swirl() when you are ready to begin.
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did
+| then. If you are new, call yourself something unique.
+
+What shall I call you? Nirdesh
+
+| Would you like to continue with one of these lessons?
+
+1: Exploratory Data Analysis GGPlot2 Part2
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attempting to load lesson dependencies...
+
+| Package ‘ggplot2’ loaded correctly!
+
+
+
+| We'll keep using the mpg data that comes with the ggplot2 package. Recall the versatility of
+| qplot. Just as a refresher, call qplot now with 5 arguments. The first 3 deal with data -
+| displ, hwy, and data=mpg. The fourth is geom set equal to the concatenation of the two
+| strings, "point" and "smooth". The fifth is facets set equal to the formula .~drv. Try this
+| now.
+
+> qplot(displ,hwy, data=mpg, geom=c("point", "smooth"),facets= .~drv)
+`geom_smooth()` using method = 'loess'
+
+| That's the answer I was looking for.
+
+  |========================                                                                                                      |  19%
+| We see a 3 facet plot, one for each drive type (4, f, and r). Now we'll see how ggplot
+| works. We'll build up a similar plot using the basic components of the package. We'll do
+| this in a series of steps.
+
+...
+
+  |==========================                                                                                                    |  21%
+| First we'll create a variable g by assigning to it the output of a call to ggplot with 2
+| arguments. The first is mpg (our dataset) and the second will tell ggplot what we want to
+| plot, in this case, displ and hwy. These are what we want our aesthetics to represent so we
+| enclose these as two arguments to the function aes. Try this now.
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did
+| then. If you are new, call yourself something unique.
+
+What shall I call you? Nirdesh
+
+| Would you like to continue with one of these lessons?
+
+1: Exploratory Data Analysis GGPlot2 Part2
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attempting to load lesson dependencies...
+
+| Package ‘ggplot2’ loaded correctly!
+
+
+
+| First we'll create a variable g by assigning to it the output of a call to ggplot with 2
+| arguments. The first is mpg (our dataset) and the second will tell ggplot what we want to
+| plot, in this case, displ and hwy. These are what we want our aesthetics to represent so we
+| enclose these as two arguments to the function aes. Try this now.
+
+> g<- ggplot(mpg,aes(displ,hwy))
+
+| You are quite good my friend!
+
+  |=============================                                                                                                 |  23%
+| Notice that nothing happened? As in the lattice system, ggplot created a graphical object
+| which we assigned to the variable g.
+
+...
+
+  |================================                                                                                              |  25%
+| Run the R command summary with g as its argument to see what g contains.
+
+> summary(g)
+data: manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl, class
+  [234x11]
+mapping:  x = displ, y = hwy
+faceting: <ggproto object: Class FacetNull, Facet>
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map: function
+    map_data: function
+    params: list
+    render_back: function
+    render_front: function
+    render_panels: function
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train: function
+    train_positions: function
+    train_scales: function
+    vars: function
+    super:  <ggproto object: Class FacetNull, Facet>
+
+| That's correct!
+
+  |==================================                                                                                            |  27%
+| So g contains the mpg data with all its named components in a 234 by 11 matrix. It also
+| contains a mapping, x (displ) and y (hwy) which you specified, and no faceting.
+
+...
+
+  |=====================================                                                                                         |  29%
+| Note that if you tried to print g with the expressions g or print(g) you'd get an error!
+| Even though it's a great package, ggplot doesn't know how to display the data yet since you
+| didn't specify how you wanted to see it. Now type g+geom_point() and see what happens.
+
+> g+geom_point()
+
+| You are really on a roll!
+
+  |=======================================                                                                                       |  31%
+| By calling the function geom_point you added a layer. By not assigning the expression to a
+| variable you displayed a plot. Notice that you didn't have to pass any arguments to the
+| function geom_point. That's because the object g has all the data stored in it. (Remember
+| you saw that when you ran summary on g before.) Now use the expression you just typed (g +
+| geom_point()) and add to it another layer, a call to geom_smooth(). Notice the red message R
+| gives you.
+
+> (g +geom_point())+geom_smooth()
+`geom_smooth()` using method = 'loess'
+
+| Not quite right, but keep trying. Or, type info() for more options.
+
+| Type g+geom_point()+geom_smooth() at the command prompt.
+
+> g+geom_point()+geom_smooth(
++ 
++ )
+`geom_smooth()` using method = 'loess'
+
+| Excellent job!
+
+  |==========================================                                                                                    |  33%
+| The gray shadow around the blue line is the confidence band. See how wide it is at the
+| right? Let's try a different smoothing function. Use the up arrow to recover the expression
+| you just typed, and instead of calling geom_smooth with no arguments, call it with the
+| argument method set equal to the string "lm".
+
+> g+geom_point()+geom_smooth(lm) 
+Error: Mapping must be created by `aes()` or `aes_()`
+> g+geom_point()+geom_smooth(method=lm) 
+
+| Almost! Try again. Or, type info() for more options.
+
+| Type g+geom_point()+geom_smooth(method="lm") at the command prompt.
+
+> g+geom_point()+geom_smooth(method="lm") 
+
+| That's a job well done!
+
+  |=============================================                                                                                 |  35%
+| By changing the smoothing function to "lm" (linear model) ggplot2 generated a regression
+| line through the data. Now recall the expression you just used and add to it another call,
+| this time to the function facet_grid. Use the formula . ~ drv as it argument. Note that this
+| is the same type of formula used in the calls to qplot.
+
+> g+geom_point()+geom_smooth(method="lm") +facet_grid(. ~ drv)
+
+| Your dedication is inspiring!
+
+  |===============================================                                                                               |  38%
+| Notice how each panel is labeled with the appropriate factor. All the data associated with
+| 4-wheel drive cars is in the leftmost panel, front-wheel drive data is shown in the middle
+| panel, and rear-wheel drive data in the rightmost. Notice that this is similar to the plot
+| you created at the start of the lesson using qplot. (We used a different smoothing function
+| than previously.)
+
+...
+
+  |==================================================                                                                            |  40%
+| So far you've just used the default labels that ggplot provides. You can add your own
+| annotation using functions such as xlab(), ylab(), and ggtitle(). In addition, the function
+| labs() is more general and can be used to label either or both axes as well as provide a
+| title. Now recall the expression you just typed and add a call to the function ggtitle with
+| the argument "Swirl Rules!".
